@@ -23,7 +23,7 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`bg-gray-800 shadow-md transition-all duration-300 ease-in-out ${
+      className={`bg-gradient-to-t from-[#FFA17F] to-[#00223E] shadow-md transition-all duration-300 ease-in-out ${
         isOpen ? 'w-64' : 'w-16'
       } flex flex-col justify-between`}
     >
@@ -40,21 +40,21 @@ const Sidebar = () => {
       <nav className="mt-6 flex flex-col">
         <div
           onClick={() => handleNavigation('/agenda')}
-          className="flex items-center px-4 py-2 text-gray-400 hover:bg-gray-700 cursor-pointer transition-colors duration-200"
+          className="flex items-center px-4 py-2 text-white bg-transparent hover:bg-white/20 cursor-pointer transition-colors duration-200"
         >
           <List className="w-5 h-5 mr-2" />
           {isOpen && <span>Agenda</span>}
         </div>
         <div
           onClick={() => handleNavigation('/calendar')}
-          className="flex items-center px-4 py-2 text-gray-400 hover:bg-gray-700 cursor-pointer transition-colors duration-200"
+          className="flex items-center px-4 py-2 text-white bg-transparent hover:bg-white/20 cursor-pointer transition-colors duration-200"
         >
           <Calendar className="w-5 h-5 mr-2" />
           {isOpen && <span>Calendar</span>}
         </div>
         <div
           onClick={() => handleNavigation('/tasks')}
-          className="flex items-center px-4 py-2 text-gray-400 hover:bg-gray-700 cursor-pointer transition-colors duration-200"
+          className="flex items-center px-4 py-2 text-white bg-transparent hover:bg-white/20 cursor-pointer transition-colors duration-200"
         >
           <ClipboardList className="w-5 h-5 mr-2" />
           {isOpen && <span>Tasks</span>}
@@ -63,17 +63,17 @@ const Sidebar = () => {
       </nav>
 
       {/* Sidebar Footer */}
-      <div className="p-4">
+      <div className="w-full pb-4">
         <div
           onClick={() => handleNavigation('/configurations')}
-          className="flex items-center px-4 py-2 text-gray-400 hover:bg-gray-700 cursor-pointer transition-colors duration-200"
+          className="flex items-center px-4 py-2 text-white bg-transparent hover:bg-white/20 cursor-pointer transition-colors duration-200"
         >
           <Settings className="w-5 h-5 mr-2" />
           {isOpen && <span>Configurations</span>}
         </div>
         <div
           onClick={() => handleNavigation('/logout')}
-          className="flex items-center px-4 py-2 text-gray-400 hover:bg-gray-700 cursor-pointer transition-colors duration-200"
+          className="flex items-center px-4 py-2 text-white bg-transparent hover:bg-white/20 cursor-pointer transition-colors duration-200"
         >
           <LogOut className="w-5 h-5 mr-2" />
           {isOpen && <span>Exit</span>}
