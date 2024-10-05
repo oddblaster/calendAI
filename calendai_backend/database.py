@@ -1,11 +1,11 @@
-import boto3
-from boto3.dynamodb.conditions import Key, Attr
+# import boto3
+# from boto3.dynamodb.conditions import Key, Attr
 
-# Initialize a DynamoDB client
-dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
+# # Initialize a DynamoDB client
+# dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 
-# Reference a specific table
-table = dynamodb.Table('ADHD_Database')
+# # Reference a specific table
+# table = dynamodb.Table('ADHD_Database')
 
 # # Example: Get an item from the table
 # response = table.get_item(
