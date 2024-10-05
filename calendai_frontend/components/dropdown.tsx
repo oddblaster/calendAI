@@ -7,11 +7,7 @@ const Dropdown = () => {
   const [attributes, setAttributes] = useState({
     title: '',
     summary: '',
-    location: '',
     date: '',
-    start: '',
-    end: '',
-    zone: ''
   });
 
   const toggleOverlay = () => {
@@ -29,8 +25,19 @@ const Dropdown = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Custom Attributes:', attributes);
-    // Add your submission logic here (e.g., API call)
-    setIsOpen(false); // Close the overlay after submission
+    const jsonString = JSON.stringify(attributes, null, 2); 
+    const blob = new Blob([jsonString], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'event-data.json';
+    document.body.appendChild(link);
+    link.click();
+
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+
   };
 
   return (
@@ -38,7 +45,7 @@ const Dropdown = () => {
       {/* Button to open the full-page overlay */}
       <button
         onClick={toggleOverlay}
-        className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-500 duration-75"
+        className="bg-[#FFA17F] text-white px-4 py-2 rounded-md hover:bg-[#FFB599] duration-75"
       >
         + Create event
       </button>
