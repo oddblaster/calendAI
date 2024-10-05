@@ -1,6 +1,7 @@
 import React from 'react';
 import Dropdown from '@/components/dropdown';
 import Sidebar from '@/components/sidebar';
+import { SidebarProvider } from '@/contexts/SideBarContext';
 import { Calendar, ChevronLeft, ChevronRight, Menu, MessageSquare, PieChart, Settings, LogOut } from 'lucide-react';
 
 const CalendarComponent = () => {
@@ -18,8 +19,7 @@ const CalendarComponent = () => {
 
   return (
     <div className="flex h-screen bg-gray-900 text-white">
-      {/* Sidebar */}
-      <Sidebar></Sidebar>
+
 
       {/* Main content */}
       <main className="flex-1 p-8">
