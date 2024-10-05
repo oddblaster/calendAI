@@ -1,2 +1,9 @@
 fastapi
 fastapi[standard]
+
+aws cli
+aws configure
+accesskey: accesskey
+secretkey: secretkey
+Default region: us-east-1
+Default output: 
