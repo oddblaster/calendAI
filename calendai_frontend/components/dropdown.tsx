@@ -18,7 +18,7 @@ const Dropdown = () => {
         setIsOpen(!isOpen);
     };
 
-    const handleInputChange = (e) => {
+    const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
         const { name, value } = e.target;
         setAttributes({
           ...attributes,
@@ -26,7 +26,7 @@ const Dropdown = () => {
         });
       };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     console.log('Custom Attributes:', attributes);
     // You can add logic to handle the submission, like storing the attributes in state or sending them to a backend.
