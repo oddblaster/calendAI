@@ -1,5 +1,8 @@
 import React from 'react';
+import Dropdown from '@/components/dropdown';
 import { Calendar, ChevronLeft, ChevronRight, Menu, MessageSquare, PieChart, Settings, LogOut } from 'lucide-react';
+import TaskLink from '@/components/viewtask';
+
 
 const CalendarComponent = () => {
   const events = [
@@ -16,45 +19,13 @@ const CalendarComponent = () => {
 
   return (
     <div className="flex h-screen bg-gray-900 text-white">
-      {/* Sidebar */}
-      <aside className="w-64 bg-gray-800 shadow-md">
-        <div className="p-4 flex items-center justify-between">
-          <h1 className="text-xl font-bold">Calendai</h1>
-          <Menu className="w-6 h-6 text-white" />
-        </div>
-        <nav className="mt-6">
-          <a href="#" className="flex items-center px-4 py-2 bg-gray-700 text-blue-400">
-            <Calendar className="w-5 h-5 mr-2" />
-            Agenda
-          </a>
-          <a href="#" className="flex items-center px-4 py-2 text-gray-400 hover:bg-gray-700">
-            <MessageSquare className="w-5 h-5 mr-2" />
-            Messages
-          </a>
-          <a href="#" className="flex items-center px-4 py-2 text-gray-400 hover:bg-gray-700">
-            <PieChart className="w-5 h-5 mr-2" />
-            Reports
-          </a>
-        </nav>
-        <div className="absolute bottom-0 w-64 p-4">
-          <a href="#" className="flex items-center px-4 py-2 text-gray-400 hover:bg-gray-700">
-            <Settings className="w-5 h-5 mr-2" />
-            Configurations
-          </a>
-          <a href="#" className="flex items-center px-4 py-2 text-gray-400 hover:bg-gray-700">
-            <LogOut className="w-5 h-5 mr-2" />
-            Exit
-          </a>
-        </div>
-      </aside>
+
 
       {/* Main content */}
       <main className="flex-1 p-8">
         <header className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold">January</h2>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-500">
-            + Create event
-          </button>
+          <Dropdown></Dropdown>
         </header>
 
         <div className="flex gap-8">
@@ -86,7 +57,7 @@ const CalendarComponent = () => {
             </ul>
           </div>
         </div>
-
+        <div className="h-8"></div>
         {/* Tasks */}
         <div className="bg-gray-800 overflow-hidden shadow rounded-lg">
           <div className="px-4 py-5 sm:p-6">
@@ -104,10 +75,7 @@ const CalendarComponent = () => {
           </div>
           <div className="bg-gray-700 px-4 py-4 sm:px-6">
             <div className="text-sm">
-              <a href="#" className="font-medium text-blue-400 hover:text-blue-300 flex items-center">
-                View all tasks
-                <ChevronRight className="ml-1 w-4 h-4" />
-              </a>
+              <TaskLink></TaskLink>
             </div>
           </div>
         </div>
