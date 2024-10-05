@@ -1,8 +1,8 @@
 import React from 'react';
 import Dropdown from '@/components/dropdown';
-import Sidebar from '@/components/sidebar';
-import { SidebarProvider } from '@/contexts/SideBarContext';
 import { Calendar, ChevronLeft, ChevronRight, Menu, MessageSquare, PieChart, Settings, LogOut } from 'lucide-react';
+import TaskLink from '@/components/viewtask';
+
 
 const CalendarComponent = () => {
   const events = [
@@ -75,10 +75,7 @@ const CalendarComponent = () => {
           </div>
           <div className="bg-gray-700 px-4 py-4 sm:px-6">
             <div className="text-sm">
-              <a href="#" className="font-medium text-blue-400 hover:text-blue-300 flex items-center">
-                View all tasks
-                <ChevronRight className="ml-1 w-4 h-4" />
-              </a>
+              <TaskLink></TaskLink>
             </div>
           </div>
         </div>
