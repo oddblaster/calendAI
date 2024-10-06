@@ -36,7 +36,7 @@ const Dropdown = ({events, setEvents}) => {
       alert('Invalid date entered.');
       return;
     }
-
+    
     // Calculate the difference in days between the entered date and the current date
     const differenceInDays = differenceInCalendarDays(enteredDate, currentDate);
 
@@ -56,7 +56,28 @@ const Dropdown = ({events, setEvents}) => {
     // Add the updated attributes to the events list
     setEvents([...events, updatedAttributes]);
 
-    console.log('Custom Attributes:', attributes);
+    try{
+      const response = fetch("http://localhost:8000/event/add_event",{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          summary: attributes.title,
+          start: currentDate.toISOString(),
+          end: enteredDate.toISOString(),
+        }),
+      });
+      if(response.status === 200){
+        console.log("Event created successfully");
+      }else{
+        console.log("Failed to create event");
+      }
+    }catch(error){
+      console.error('Error creating tasks:', error);
+      alert('An error occurred while creating tasks. Please try again.');
+    }
+    /*console.log('Custom Attributes:', attributes);
     const jsonString = JSON.stringify(attributes, null, 2); 
     const blob = new Blob([jsonString], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
@@ -68,7 +89,7 @@ const Dropdown = ({events, setEvents}) => {
     link.click();
 
     document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    URL.revokeObjectURL(url);*/
 
   };
 

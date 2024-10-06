@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import os 
-
+from ai import*
 #Imports the modules for data
 from pydantic import BaseModel
 from typing import List, Optional
@@ -29,18 +29,14 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-
-
-
 #Definition of Models
 class DateTimeZone(BaseModel):
     dateTime: str
     timeZone: str
 class eventItem(BaseModel):
     summary: str
-    location: str
-    start: DateTimeZone
-    end: DateTimeZone
+    start: str
+    end: str
      
 # In-memory storage for todos (replace with database in production)
 
@@ -56,8 +52,17 @@ async def get_events() -> List[eventItem]:
     return Memory
  
 @app.post("/event/add_event", tags=["events"])
-async def add_event(event: eventItem) -> dict:
-    Memory.append(event)
+async def add_event(event: eventItem):
+
+    content = event.summary
+    start_date = event.start
+    end_date = event.end
+    Task_Maker = task_creator(content,end_date,start_date)
+      
+    Task_Maker.make_tasks()
+    Task_Maker.make_list()
+    Task_Maker.calculate_time()
+    Task_Maker.place_events()
     return {"message": "Event was successfully added"}
 
 @app.get("/event/get_event/{name}", tags=["event"])
