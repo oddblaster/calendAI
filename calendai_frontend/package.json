@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@ericz1803/react-google-calendar": "^4.3.2",
+    "framer-motion": "^11.11.1",
     "lucide-react": "^0.447.0",
     "next": "14.2.14",
     "react": "^18.3.1",
