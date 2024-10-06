@@ -18,7 +18,7 @@ const CalendarComponent = () => {
       {/* Main content */}
       <main className="flex-1 p-8">
         <header className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">January</h2>
+          <h2 className="text-2xl font-bold">Agenda</h2>
           <Dropdown></Dropdown>
         </header>
 
@@ -40,8 +40,8 @@ const CalendarComponent = () => {
       </main>
 
       {/* Day view */}
-      <aside className="flex flex-col w-1/4 h-lvh bg-[#00223E] p-4 shadow-md">
-        <h3 className="font-semibold mb-4">Friday - January 4, 2022</h3>
+      <aside className="flex flex-col w-1/4 h-lvh bg-[#00223E] p-4 shadow-md items-center">
+        <h3 className="font-semibold mb-4">Notes</h3>
         <div className="space-y-4">
           <div className="bg-[#FFA17F] p-4 rounded-md">
             <h4 className="font-semibold">Meeting With Jundinu Tech</h4>
@@ -51,10 +51,10 @@ const CalendarComponent = () => {
             <h4 className="font-semibold">Meeting With Nonuda Company</h4>
             <p>2:00 PM - 3:00 PM</p>
           </div>
-          <button className="absolute bottom-4 right-[10rem] bg-[#FFA17F] text-3xl text-white rounded-full w-16 h-16 hover:bg-[#FFBAAA]">
+        </div>
+        <button className="mt-auto bg-[#FFA17F] text-3xl text-white rounded-full size-16 hover:bg-[#FFBAAA]">
             +
           </button>
-        </div>
       </aside>
     </div>
   );

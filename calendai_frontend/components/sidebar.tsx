@@ -20,7 +20,7 @@ const Sidebar = () => {
   const handleNavigation = (path: string) => {
     router.push(path);
   };
-
+  let dateTime = new Date();
   return (
     <aside
       className={`bg-gradient-to-t from-[#FFA17F] to-[#00223E] shadow-md transition-all duration-300 ease-in-out ${
@@ -29,11 +29,15 @@ const Sidebar = () => {
     >
       {/* Sidebar Header */}
       <div className="p-4 flex items-center justify-between">
-        {isOpen && <h1 onClick={ () =>handleNavigation('/main')} className="hover:cursor-pointer text-xl font-bold text-white">CalendAI</h1>}
+        {isOpen && <h1 onClick={ () =>handleNavigation('/main')} className="hover:cursor-pointer text-xl font-bold bg-text-gradient-animated animate-gradient-text bg-clip-text text-transparent bg-[length:200%_200%]">CalendAI</h1>}
         <Menu
           onClick={toggleSidebar}
           className="w-6 h-6 text-white cursor-pointer"
         />
+      </div>
+
+      <div className='-mt-48 ml-8 items-center justify-center hover:cursor-pointer text-l font-bold bg-text-gradient-animated animate-gradient-text bg-clip-text text-transparent bg-[length:200%_200%]'>
+      {isOpen && `Today's date is: ${dateTime.getMonth()}/${dateTime.getDate()}/${dateTime.getFullYear()}`}
       </div>
 
       {/* Navigation Links */}
