@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const Dropdown = () => {
+const Dropdown = ({events}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [attributes, setAttributes] = useState({
     title: '',
@@ -24,6 +24,7 @@ const Dropdown = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    events
     console.log('Custom Attributes:', attributes);
     const jsonString = JSON.stringify(attributes, null, 2); 
     const blob = new Blob([jsonString], { type: 'application/json' });

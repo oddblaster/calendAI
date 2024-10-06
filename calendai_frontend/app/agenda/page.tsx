@@ -7,11 +7,11 @@ import { useState } from 'react';
 
 
 const CalendarComponent = () => {
-  const events = [
+  const [events,setEvents] = useState([
     { title: 'Team Meeting', date: 'Today, 2:00 PM', type: 'work' },
     { title: 'Dentist Appointment', date: 'Tomorrow, 10:00 AM', type: 'personal' },
     { title: 'Project Deadline', date: 'Friday, 5:00 PM', type: 'work' },
-  ];
+  ]);
   const [notes,setNotes] = useState([
     { color: '#FFA17F', title: "Need to Get the Projects Done", description: "DO NOT HARDCODE THAT SHIT" },
     { color: '#7FFFD4', title: "Meeting with Client", description: "Prepare the new proposal and mockups" },
