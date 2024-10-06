@@ -1,3 +1,5 @@
+'using client'
+
 import React from 'react';
 import Dropdown from '@/components/dropdown';
 import { Calendar, ChevronLeft, ChevronRight, Menu, MessageSquare, PieChart, Settings, LogOut } from 'lucide-react';
