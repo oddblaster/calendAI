@@ -20,7 +20,7 @@ const Sidebar = () => {
   const handleNavigation = (path: string) => {
     router.push(path);
   };
-
+  let dateTime = new Date();
   return (
     <aside
       className={`bg-gradient-to-t from-[#FFA17F] to-[#00223E] shadow-md transition-all duration-300 ease-in-out ${
@@ -29,15 +29,17 @@ const Sidebar = () => {
     >
       {/* Sidebar Header */}
       <div className="p-4 flex items-center justify-between">
-        {isOpen && <h1 className="text-xl font-bold text-white">Calendai</h1>}
+        {isOpen && <h1 onClick={ () =>handleNavigation('/')} className="hover:cursor-pointer text-xl font-bold bg-text-gradient-animated animate-gradient-text bg-clip-text text-transparent bg-[length:200%_200%]">CalendAI <br></br><span className='text-sm'>{isOpen && `Today's date is: ${(dateTime.getMonth())%12+1}/${dateTime.getDate()}/${dateTime.getFullYear()}`}</span>
+        </h1>}
         <Menu
           onClick={toggleSidebar}
-          className="w-6 h-6 text-white cursor-pointer"
+          className="self-start w-6 h-6 text-white cursor-pointer"
         />
+
       </div>
 
       {/* Navigation Links */}
-      <nav className="mt-6 flex flex-col">
+      <nav className="mt-6 flex flex-col justify-center">
         <div
           onClick={() => handleNavigation('/agenda')}
           className="flex items-center px-4 py-2 text-white bg-transparent hover:bg-white/20 cursor-pointer transition-colors duration-200"
@@ -51,13 +53,6 @@ const Sidebar = () => {
         >
           <Calendar className="w-5 h-5 mr-2" />
           {isOpen && <span>Calendar</span>}
-        </div>
-        <div
-          onClick={() => handleNavigation('/notes')}
-          className="flex items-center px-4 py-2 text-white bg-transparent hover:bg-white/20 cursor-pointer transition-colors duration-200"
-        >
-          <ClipboardList className="w-5 h-5 mr-2" />
-          {isOpen && <span>Tasks</span>}
         </div>
         
       </nav>
