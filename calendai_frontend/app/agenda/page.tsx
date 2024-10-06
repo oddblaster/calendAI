@@ -4,13 +4,14 @@ import React from 'react';
 import Dropdown from '@/components/dropdown';
 import Notes from '@/components/notes';
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 
 const CalendarComponent = () => {
-  const [events,setEvents] = useState([
-    { title: 'Team Meeting', date: 'Today, 2:00 PM', type: 'work' },
-    { title: 'Dentist Appointment', date: 'Tomorrow, 10:00 AM', type: 'personal' },
-    { title: 'Project Deadline', date: 'Friday, 5:00 PM', type: 'work' },
+  const [events, setEvents] = useState([
+    { title: 'Team Meeting', date: 'Today, 2:00 PM', description: 'work' },
+    { title: 'Dentist Appointment', date: 'Tomorrow, 10:00 AM', description: 'personal' },
+    { title: 'Project Deadline', date: 'Friday, 5:00 PM', description: 'work' },
   ]);
   const [notes,setNotes] = useState([
     { color: '#FFA17F', title: "Need to Get the Projects Done", description: "DO NOT HARDCODE THAT SHIT" },
@@ -44,7 +45,7 @@ const [formVisible, setFormVisible] = useState(false);
       <main className="flex-1 p-8">
         <header className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold">Agenda</h2>
-          <Dropdown></Dropdown>
+          <Dropdown events={events} setEvents={setEvents}></Dropdown>
         </header>
 
         <div className="flex gap-8">
@@ -73,34 +74,43 @@ const [formVisible, setFormVisible] = useState(false);
           ))}
         </div>
         <button 
-        className="mt-4 bg-[#FFA17F] text-3xl text-white rounded-full w-16 h-16 flex justify-center items-center hover:bg-[#FFBAAA]"
+        className="mt-4 bg-[#FFA17F] text-3xl text-white rounded-full w-16 h-16 flex justify-center items-center hover:bg-[#FFBAAA] duration-150"
         onClick={() => setFormVisible(!formVisible)}
       >
         +
       </button>
-
-      <div className={`w-full mt-4 transition-all duration-500 ease-in-out transform ${formVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
+      <AnimatePresence>
         {formVisible && (
-          <form className="flex flex-col items-center" onSubmit={addNote}>
-            <input 
-              className="mb-2 p-2 w-full text-black rounded-md"
-              type="text" 
-              placeholder="Note Title" 
-              value={newNote.title} 
-              onChange={(e) => setNewNote({ ...newNote, title: e.target.value })} 
-            />
-            <textarea
-              className="mb-2 p-2 w-full text-black rounded-md"
-              placeholder="Note Description"
-              value={newNote.description}
-              onChange={(e) => setNewNote({ ...newNote, description: e.target.value })}
-            />
-            <button type="submit" className="bg-[#FFA17F] text-white rounded-full px-4 py-2 hover:bg-[#FFBAAA]">
-              Add Note
-            </button>
-          </form>
+          <motion.div
+            key="form-container"
+            className="w-full mt-4 p-4 rounded-md shadow-lg"
+            initial={{ opacity: 0, y: 100 }} // Start off-screen at the bottom
+            animate={{ opacity: 1, y: 0 }}    // Slide in and fade in from the bottom
+            exit={{ opacity: 0, y: 100 }}     // Slide out to the bottom and fade out
+            transition={{ duration: 0.5, ease: "easeInOut"}}
+            style={{ pointerEvents: formVisible ? 'auto' : 'none' }}
+          >
+            <form className="flex flex-col items-center" onSubmit={addNote}>
+              <input 
+                className="mb-4 p-2 w-full text-black rounded-md"
+                type="text" 
+                placeholder="Note Title" 
+                value={newNote.title} 
+                onChange={(e) => setNewNote({ ...newNote, title: e.target.value })} 
+              />
+              <textarea
+                className="mb-4 p-2 w-full text-black rounded-md"
+                placeholder="Note Description"
+                value={newNote.description}
+                onChange={(e) => setNewNote({ ...newNote, description: e.target.value })}
+              />
+              <button type="submit" className="bg-[#FFA17F] text-white rounded-full px-4 py-2 hover:bg-[#FFBAAA] duration-150">
+                Add Note
+              </button>
+            </form>
+          </motion.div>
         )}
-      </div>
+      </AnimatePresence>
   </aside>
     </div>
   );
