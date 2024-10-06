@@ -47,12 +47,12 @@ const Dropdown = () => {
         onClick={toggleOverlay}
         className="bg-[#FFA17F] text-white px-4 py-2 rounded-md hover:bg-[#FFB599] duration-75"
       >
-        + Create event
+        Create Event
       </button>
 
       {/* Full-page overlay with fade-in and scale transition */}
       <div
-        className={`fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 ${
+        className={`fixed inset-0 z-50 bg-gradient-to-t from-[#FFA17F]/50 to-[#00223E] flex items-center justify-center transition-opacity duration-300 ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >

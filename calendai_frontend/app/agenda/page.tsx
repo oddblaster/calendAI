@@ -55,14 +55,14 @@ const CalendarComponent = () => {
       </main>
 
       {/* Day view */}
-      <aside className="w-1/4 bg-gray-800 p-4 shadow-md">
+      <aside className="w-1/4 bg-[#00223E] p-4 shadow-md">
         <h3 className="font-semibold mb-4">Friday - January 4, 2022</h3>
         <div className="space-y-4">
           <div className="bg-[#FFA17F] p-4 rounded-md">
             <h4 className="font-semibold">Meeting With Jundinu Tech</h4>
             <p>8:00 AM - 9:00 AM</p>
           </div>
-          <div className="bg-[#00223E] p-4 rounded-md">
+          <div className="bg-[#2A4563] p-4 rounded-md">
             <h4 className="font-semibold">Meeting With Nonuda Company</h4>
             <p>2:00 PM - 3:00 PM</p>
           </div>
