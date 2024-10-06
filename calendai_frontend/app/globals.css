@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+.text-outline {
+  -webkit-text-stroke: 2px #ffffff; 
+  color: transparent;
+}
+
+.hover-gradient-outline {
+  outline-color: transparent;
+  outline-style: solid;
+  outline-width: 5px;
+  border-image: linear-gradient(90deg, #FFA17F, #FFFFFF) 1;
+}
+
+.hover-gradient-outline:hover {
+  border-image: linear-gradient(90deg, #FFA17F, #FFFFFF) 1;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -30,10 +48,47 @@ body {
   0% {
     background-position: 0% 50%;
   }
-  50% {
-    background-position: 100% 50%;
+  15% {
+    background-position: 25% 75%;
+  }
+  30% {
+    background-position: 50% 25%;
+  }
+  45% {
+    background-position: 75% 50%;
+  }
+  60% {
+    background-position: 100% 75%;
+  }
+  75% {
+    background-position: 50% 50%;
   }
   100% {
     background-position: 0% 50%;
   }
 }
+
+@keyframes text-gradient-animation {
+  0% {
+    background-position: 25% 75%;
+  }
+  15% {
+    background-position: 0% 50%;
+  }
+  30% {
+    background-position: 75% 50%;
+  }
+  45% {
+    background-position: 50% 25%;
+  }
+  60% {
+    background-position: 50% 50%;
+  }
+  75% {
+    background-position: 100% 75%;
+  }
+  100% {
+    background-position: 25% 75%;
+    }
+}
+
