@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const [isMainTransition, setIsMainTransition] = useState(false);
 
   useEffect(() => {
-    setIsMainTransition(pathname === '/main'); // Set transition state based on current route
+    setIsMainTransition(pathname === '/'); // Set transition state based on current route
   }, [pathname]);
 
   return (
@@ -41,7 +41,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             }}
           >
           <div className="flex h-screen">
-            {pathname !== "/main" && <Sidebar />}
+            {pathname !== "/" && <Sidebar />}
             <main className="flex-1 bg-gray-100 overflow-auto">
             {children}
             </main>

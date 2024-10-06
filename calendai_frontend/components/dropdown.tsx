@@ -97,13 +97,13 @@ const Dropdown = () => {
               <button
                 type="button"
                 onClick={toggleOverlay}
-                className="text-gray-500 hover:text-gray-800"
+                className="text-gray-500 hover:text-gray-800 duration-150"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-500"
+                className="bg-[#FFA17F] text-white px-4 py-2 rounded-md hover:bg-[#FFBAAA] transition duration-150"
               >
                 Save
               </button>
@@ -113,7 +113,7 @@ const Dropdown = () => {
           {/* Close button for overlay */}
           <button
             onClick={toggleOverlay}
-            className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
+            className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 duration-150"
           >
             &#10005; {/* Unicode for "X" */}
           </button>
