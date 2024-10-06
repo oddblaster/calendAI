@@ -23,23 +23,8 @@ const CalendarComponent = () => {
         </header>
 
         <div className="flex gap-8">
-          {/* Calendar */}
-          <div className="w-1/3 bg-gray-800 p-4 rounded-md shadow">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="font-semibold">January</h3>
-              <div className="flex gap-2">
-                <ChevronLeft className="w-5 h-5 text-gray-400 cursor-pointer" />
-                <ChevronRight className="w-5 h-5 text-gray-400 cursor-pointer" />
-              </div>
-            </div>
-            {/* Calendar grid would go here */}
-            <div className="grid grid-cols-7 gap-2 text-center">
-              {/* ... Calendar days ... */}
-            </div>
-          </div>
-
           {/* Events list */}
-          <div className="w-2/3">
+          <div className="w-full">
             <h3 className="font-semibold mb-4">Events</h3>
             <ul className="space-y-4">
               {events.map((event, index) => (
@@ -55,7 +40,7 @@ const CalendarComponent = () => {
       </main>
 
       {/* Day view */}
-      <aside className="w-1/4 bg-[#00223E] p-4 shadow-md">
+      <aside className="flex flex-col w-1/4 h-lvh bg-[#00223E] p-4 shadow-md">
         <h3 className="font-semibold mb-4">Friday - January 4, 2022</h3>
         <div className="space-y-4">
           <div className="bg-[#FFA17F] p-4 rounded-md">
@@ -66,6 +51,9 @@ const CalendarComponent = () => {
             <h4 className="font-semibold">Meeting With Nonuda Company</h4>
             <p>2:00 PM - 3:00 PM</p>
           </div>
+          <button className="absolute bottom-4 right-[10rem] bg-[#FFA17F] text-3xl text-white rounded-full w-16 h-16 hover:bg-[#FFBAAA]">
+            +
+          </button>
         </div>
       </aside>
     </div>
