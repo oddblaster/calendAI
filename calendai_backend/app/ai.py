@@ -55,7 +55,7 @@ class task_creator():
                 The task: The name which is used to put on the calendar summary
                 duration: The time it takes to complete this task
                 
-            Analyze and pick a random time between 10am and 8pm for the task.      
+            Analyze and pick a random time between 12pm and 10pm for the task.      
             
             Format the start time and end time in isoformat with the date included to fit into the google calendar.
             Return in JSON format:

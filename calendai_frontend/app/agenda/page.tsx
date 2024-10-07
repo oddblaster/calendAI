@@ -14,7 +14,6 @@ const CalendarComponent = () => {
     { title: 'Project Deadline', date: 'Friday, 5:00 PM', description: 'work' },
   ]);
   const [notes,setNotes] = useState([
-    { color: '#FFA17F', title: "Need to Get the Projects Done", description: "DO NOT HARDCODE THAT SHIT" },
     { color: '#7FFFD4', title: "Meeting with Client", description: "Prepare the new proposal and mockups" },
     { color: '#FF6F61', title: "Code Review", description: "Refactor the authentication module" },
     { color: '#FFD700', title: "Write Documentation", description: "Explain the new API endpoints clearly" },
@@ -61,7 +60,7 @@ const [formVisible, setFormVisible] = useState(false);
   }, []);
 
   return (
-    <div className="flex h-screen bg-gray-900 text-white">
+    <div className="flex h-full bg-gray-900 text-white">
       {/* Main content */}
       <main className="flex-1 p-8">
         <header className="flex justify-between items-center mb-6">
@@ -69,7 +68,7 @@ const [formVisible, setFormVisible] = useState(false);
           <Dropdown events={events} setEvents={setEvents}></Dropdown>
         </header>
 
-        <div className="flex gap-8">
+        <div className="flex gap-8 h-[80vh] overflow-auto">
           {/* Events list */}
           <div className="w-full">
             <h3 className="font-semibold mb-4">Events</h3>
