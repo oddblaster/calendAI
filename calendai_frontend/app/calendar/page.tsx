@@ -3,7 +3,7 @@
 import React from "react"
 import Sidebar from "@/components/sidebar";
 
-const API_KEY = "AIzaSyBNTurSIDjD8DiHSolcAooyVZFWxM7H2gE";
+const API_KEY = "";
 
 const CalendarPage = () => {
 
