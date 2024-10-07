@@ -50,7 +50,7 @@ const Main = () => {
 
   return (
     <>        
-      <div className="ease-in-out relative h-screen w-full bg-gradient-animated bg-[length:200%_200%] animate-gradient flex items-center justify-center">
+      <div className="ease-in-out relative h-screen w-full bg-gradient-animated bg-[length:200%_200%] animate-gradient flex items-center justify-center overflow-hidden">
       {calendAIObjects.map((cal, index) => (
           <AnimatedNotes
             key={index}  
