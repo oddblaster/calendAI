@@ -48,10 +48,10 @@ def create_event(service, event : any):
     created_event = service.events().insert(calendarId="primary", body= event).execute()
     print(f"Event Created: {created_event.get('htmlLink')}")
     
-def get_events(service,start_time: datetime, end_time : datetime):
+def get_events_from_calendar(service,start_time: datetime, end_time : datetime):
     start_time_rfc = start_time.astimezone(timezone.utc).isoformat()
     end_time_rfc = end_time.astimezone(timezone.utc).isoformat()
-    events_result = service.events().list(calendarId='primary',
+    events_result = service.events().list(calendarId='73379f39f32bbc820ff6c1fa45f06d9208d84b8eedd7711e894370dcb991bd20@group.calendar.google.com',
                                           timeMin=start_time_rfc,
                                           timeMax=end_time_rfc,
                                           singleEvents=True,
@@ -59,8 +59,4 @@ def get_events(service,start_time: datetime, end_time : datetime):
     events = events_result.get('items', [])
     
     print(f'Number of events: {len(events)}')
-if __name__=="__main__":
-    creds = get_credentials()
-    service = build("calendar", "v3", credentials=creds)
-    
-    create_event(service)
+    return events

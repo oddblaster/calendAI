@@ -42,14 +42,32 @@ class eventItem(BaseModel):
 
 Memory = []
 
+creds = get_credentials()
+service = build("calendar", "v3", credentials=creds)
+def format_datetime(iso_string):
+    # Parse the ISO format string
+    dt = datetime.fromisoformat(iso_string.replace('Z', '+00:00'))
     
+    # Format the datetime as desired
+    return dt.strftime("%Y-%m-%d %I:%M %p") 
+
 @app.get("/", tags=["root"])
 async def root() -> dict:
     return {"message": "Welcome to Calendai"}
 
 @app.get("/event/get_events", tags=["events"])
-async def get_events() -> List[eventItem]:
-    return Memory
+async def get_events():
+    try:
+        events = get_events_from_calendar(service, datetime.now(), datetime.now() + timedelta(days=7))
+        simplified_events = [{
+            'title': event['summary'],
+            'date': format_datetime(event['end']['dateTime']),
+            'description': "Task"
+        } for event in events]
+        return simplified_events
+    except Exception as e:
+        print(f"Error in get_events: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
  
 @app.post("/event/add_event", tags=["events"])
 async def add_event(event: eventItem):
