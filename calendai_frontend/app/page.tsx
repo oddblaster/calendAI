@@ -8,37 +8,37 @@ const Main = () => {
   const calendAIObjects = [
     {
       color: '#FF9E80',
-      title: 'CalendAI: Your Intelligent Scheduling Assistant',
+      title: 'Your Intelligent Scheduling Assistant',
       description: 'CalendAI makes organizing your day effortless with AI-powered suggestions, ensuring you never miss an important meeting or event.'
     },
     {
       color: '#FFB07C',
-      title: 'CalendAI: Simplify Your Schedule',
+      title: 'Simplify Your Schedule',
       description: 'Let CalendAI streamline your daily plans by intelligently prioritizing tasks and meetings, so you can focus on what really matters.'
     },
     {
       color: '#FF8F6B',
-      title: 'CalendAI: AI-Powered Time Management',
+      title: 'AI-Powered Time Management',
       description: 'With CalendAI, scheduling has never been easier. Our AI ensures that you always have the best time slots reserved for your important tasks.'
     },
     {
       color: '#FFA37D',
-      title: 'CalendAI: Plan with Precision',
+      title: 'Plan with Precision',
       description: 'CalendAI understands your workflow and helps you plan with precision, offering smart insights to optimize your day-to-day productivity.'
     },
     {
       color: '#FF9468',
-      title: 'CalendAI: Smarter Scheduling, Better Results',
+      title: 'Smarter Scheduling, Better Results',
       description: 'CalendAI uses artificial intelligence to create a personalized schedule for you, making sure you achieve your goals on time, every time.'
     },
     {
       color: '#FFAB82',
-      title: 'CalendAI: Efficiency Meets Innovation',
+      title: 'Efficiency Meets Innovation',
       description: 'CalendAI turns the challenge of time management into a breeze by providing innovative, AI-driven features that help you stay ahead of your schedule.'
     },
     {
       color: '#FF9B72',
-      title: 'CalendAI: Master Your Time, Effortlessly',
+      title: 'Master Your Time, Effortlessly',
       description: 'Master your time with CalendAI’s intuitive features that automate and simplify your scheduling, giving you more time for what matters most.'
     }
   ];
