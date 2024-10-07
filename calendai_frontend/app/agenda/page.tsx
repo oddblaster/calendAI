@@ -3,7 +3,7 @@
 import React from 'react';
 import Dropdown from '@/components/dropdown';
 import Notes from '@/components/notes';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 
@@ -38,9 +38,27 @@ const [formVisible, setFormVisible] = useState(false);
       setFormVisible(false);  
     }
   };
-
-  
-  
+  const getEvents = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/event/get_events", {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      setEvents(data);
+    } catch (error) {
+      console.error("There was a problem with the fetch operation:", error);
+    }
+  };
+  useEffect(() => {
+    getEvents();
+  }, []);
 
   return (
     <div className="flex h-screen bg-gray-900 text-white">
